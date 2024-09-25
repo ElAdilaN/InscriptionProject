@@ -1,9 +1,11 @@
 <h1>Inscripció proves atletisme</h1>
-<section [ngClass]="'sec1'">
+<section>
   <h1>Dades identificatives</h1>
-  <label id="dni">DNI: <input type="text" [(ngModel)]="dni" /> </label>
-  {{ this.letter }}
+  <label id="dni"
+    >DNI: <input type="text" [(ngModel)]="dni" (change)="findLetter()" />
+  </label>
   <br />
+  <p>{{ this.letter }}</p>
   <label id="codiFederat"
     >Codi de federat: <input type="text" [(ngModel)]="codiFederat" /> </label
   ><br />

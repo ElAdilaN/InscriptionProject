@@ -1,16 +1,15 @@
-import { NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inscription',
   standalone: true,
-  imports: [FormsModule, NgClass, NgFor],
+  imports: [FormsModule],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.css',
 })
 export class InscriptionComponent {
-  letter: string = '';
+  letter!: string;
   maxAllowed: number = 1400;
   totalSelectedValue: number = 0;
   options: { name: string; value: number }[] = [
@@ -27,4 +26,38 @@ export class InscriptionComponent {
   nomCognom!: string;
   telefon!: string;
   email!: string;
+
+  findLetter() {
+    let myarray: string[] = [
+      'T',
+      ' R',
+      ' W',
+      'A',
+      'G',
+      'M',
+      'Y',
+      'F',
+      'P',
+      'D',
+      'X',
+      'B',
+      'N',
+      'J',
+      'Z',
+      'S',
+      'Q',
+      'V',
+      'H',
+      'L',
+      'C',
+      'K',
+      'E',
+    ];
+    let mynum = parseInt(this.dni);
+    mynum = (mynum % 23) - 1;
+
+    if (this.dni.length === 8) {
+      this.letter = myarray[mynum];
+    }
+  }
 }

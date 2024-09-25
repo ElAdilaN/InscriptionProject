@@ -8,8 +8,8 @@ let compiled: HTMLElement;
 function getNthLabel(index: number) {
   return compiled.querySelectorAll('label')[index];
 }
-function getHeads(index: number) {
-  return compiled.querySelectorAll('h1')[index];
+function getHeads(index1: number) {
+  return compiled.querySelectorAll('h1')[index1];
 }
 
 function getInputFromLabel(labelIndex: number) {
@@ -81,8 +81,9 @@ describe('Dades identificatives ', () => {
 
   it('should show the letter', () => {
     const inputDni: HTMLInputElement = getInputFromLabel(0)!;
-    inputDni.value = '1234567890';
+    inputDni.value = '12345678';
+    inputDni.dispatchEvent(new Event('input'));
     fixture.detectChanges();
-    expect(compiled.querySelectorAll('p')[0]!.textContent).toBe('J');
+    expect(compiled.querySelector('p')!.textContent).toBe('J');
   });
 });
