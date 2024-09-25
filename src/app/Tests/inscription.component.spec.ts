@@ -78,4 +78,11 @@ describe('Dades identificatives ', () => {
     expect(getInputFromLabel(3)!.type).toBe('text');
     expect(getInputFromLabel(4)!.type).toBe('email');
   });
+
+  it('should show the letter', () => {
+    const inputDni: HTMLInputElement = getInputFromLabel(0)!;
+    inputDni.value = '1234567890';
+    fixture.detectChanges();
+    expect(compiled.querySelectorAll('p')[0]!.textContent).toBe('J');
+  });
 });

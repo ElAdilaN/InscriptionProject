@@ -1,1 +1,22 @@
 <h1>Inscripció proves atletisme</h1>
+<section [ngClass]="'sec1'">
+  <h1>Dades identificatives</h1>
+  <label id="dni">DNI: <input type="text" [(ngModel)]="dni" /> </label>
+  {{ this.letter }}
+  <br />
+  <label id="codiFederat"
+    >Codi de federat: <input type="text" [(ngModel)]="codiFederat" /> </label
+  ><br />
+  <label id="nomCognom"
+    >Nom i cognoms: <input type="text" [(ngModel)]="nomCognom" /> </label
+  ><br />
+  <label id="telefon"
+    >Telèfon: <input type="text" [(ngModel)]="telefon" /> </label
+  ><br />
+  <label id="email">Email: <input type="email" [(ngModel)]="email" /> </label
+  ><br />
+</section>
+
+<section>
+  <h1>Inscripció</h1>
+</section>
