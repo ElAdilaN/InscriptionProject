@@ -86,4 +86,20 @@ export class InscriptionComponent {
       }
     }
   }
+  isDisabled(): boolean {
+    return (
+      this.dni === '' ||
+      this.codiFederat === '' ||
+      this.email === '' ||
+      this.nomCognom === '' ||
+      this.telefon === '' ||
+      this.dni === undefined ||
+      this.codiFederat === undefined ||
+      this.email === undefined ||
+      this.nomCognom === undefined ||
+      this.telefon === undefined ||
+      this.dni.length !== 8 ||
+      this.selectedOptions.length === 0
+    );
+  }
 }
