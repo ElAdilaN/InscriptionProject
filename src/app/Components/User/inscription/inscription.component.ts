@@ -1,10 +1,11 @@
+import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-inscription',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgFor],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.css',
 })
@@ -55,10 +56,34 @@ export class InscriptionComponent {
     ];
     let mynum = parseInt(this.dni);
     mynum = (mynum % 23) - 1;
-    let myp = document.getElementById('myp');
+    // let myp = document.getElementById('myp');
     if (this.dni.length === 8) {
       this.letter = myarray[mynum];
-      myp!.textContent = `${this.letter}`;
+    }
+  }
+
+  isSelected(optionName: string): boolean {
+    return this.selectedOptions.some((option) => option.name === optionName);
+  }
+
+  onCheckboxChange(option: { name: string; value: number }, event: Event) {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    if (isChecked) {
+      if (this.totalSelectedValue + option.value <= this.maxAllowed) {
+        this.selectedOptions.push(option);
+        this.totalSelectedValue += option.value;
+      } else {
+        (event.target as HTMLInputElement).checked = false;
+        alert('you surpassed 1400miles allowed');
+      }
+    } else {
+      const index = this.selectedOptions.findIndex(
+        (opt) => opt.name === option.name
+      );
+      if (index > -1) {
+        this.selectedOptions.splice(index, 1);
+        this.totalSelectedValue -= option.value;
+      }
     }
   }
 }

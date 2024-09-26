@@ -109,4 +109,19 @@ describe('Dades', () => {
     expect(getInputFromLabel(9)!.type).toBe('checkbox');
   });
 });
- 
+
+describe('Dades', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [InscriptionComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(InscriptionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled = fixture.nativeElement as HTMLElement;
+  });
+  it('it should show the button with the text ', () => {
+    expect(compiled.querySelector('button')!.textContent).toBe('Register');
+  });
+});

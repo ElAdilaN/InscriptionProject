@@ -2,8 +2,13 @@
 <section>
   <h1>Dades identificatives</h1>
   <label id="dni"
-    >DNI: <input type="text" [(ngModel)]="dni" (ngModelChange)="findLetter()" />
-  </label>
+    >DNI:
+    <input
+      type="text"
+      [(ngModel)]="dni"
+      (ngModelChange)="findLetter()"
+    /> </label
+  >{{ this.letter }}
   <br />
   <!-- <p>{{ this.letter }}</p> -->
   <p id="letter"></p>
@@ -22,4 +27,12 @@
 
 <section>
   <h1>Inscripció</h1>
+  <label *ngFor="let option of options; let i = index">
+    <input
+      type="checkbox"
+      [value]="option.value"
+      [checked]="isSelected(option.name)"
+      (change)="onCheckboxChange(option, $event)"
+    />{{ option.name }}
+  </label>
 </section>
