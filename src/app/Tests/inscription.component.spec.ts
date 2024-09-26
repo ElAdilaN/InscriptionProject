@@ -87,3 +87,26 @@ describe('Dades identificatives ', () => {
     expect(compiled.querySelector('p')!.textContent).toBe('J');
   });
 });
+
+describe('Dades', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [InscriptionComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(InscriptionComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    compiled = fixture.nativeElement as HTMLElement;
+  });
+
+  it('check for the checkbox labels ', () => {
+    expect(getInputFromLabel(5)!.type).toBe('checkbox');
+    expect(getInputFromLabel(6)!.type).toBe('checkbox');
+    expect(getInputFromLabel(7)!.type).toBe('checkbox');
+    expect(getInputFromLabel(8)!.type).toBe('checkbox');
+    expect(getInputFromLabel(9)!.type).toBe('checkbox');
+    expect(getInputFromLabel(9)!.type).toBe('checkbox');
+  });
+});
+ 

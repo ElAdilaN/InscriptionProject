@@ -55,9 +55,10 @@ export class InscriptionComponent {
     ];
     let mynum = parseInt(this.dni);
     mynum = (mynum % 23) - 1;
-
+    let myp = document.getElementById('myp');
     if (this.dni.length === 8) {
       this.letter = myarray[mynum];
+      myp!.textContent = `${this.letter}`;
     }
   }
 }

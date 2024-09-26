@@ -2,10 +2,11 @@
 <section>
   <h1>Dades identificatives</h1>
   <label id="dni"
-    >DNI: <input type="text" [(ngModel)]="dni" (change)="findLetter()" />
+    >DNI: <input type="text" [(ngModel)]="dni" (ngModelChange)="findLetter()" />
   </label>
   <br />
-  <p>{{ this.letter }}</p>
+  <!-- <p>{{ this.letter }}</p> -->
+  <p id="letter"></p>
   <label id="codiFederat"
     >Codi de federat: <input type="text" [(ngModel)]="codiFederat" /> </label
   ><br />
