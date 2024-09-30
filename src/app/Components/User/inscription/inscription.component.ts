@@ -1,6 +1,7 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../../classes/user';
 
 @Component({
   selector: 'app-inscription',
@@ -22,17 +23,14 @@ export class InscriptionComponent {
     { name: '1400 mile', value: 1400 },
   ];
   selectedOptions: { name: string; value: number }[] = [];
-  dni!: string;
-  codiFederat!: string;
-  nomCognom!: string;
-  telefon!: string;
-  email!: string;
+
+  user: User = new User();
 
   findLetter() {
     let letters: string = 'TRWAGMYFPDXBNJZSQVHLCKE';
-    let mynum = parseInt(this.dni);
+    let mynum = parseInt(this.user.dni);
     mynum = (mynum % 23) - 1;
-    if (this.dni !== undefined && this.dni.length === 8) {
+    if (this.user.dni !== undefined && this.user.dni.length === 8) {
       return letters.charAt(mynum);
     }
     return '';
@@ -64,17 +62,17 @@ export class InscriptionComponent {
   }
   isDisabled(): boolean {
     return (
-      this.dni === '' ||
-      this.codiFederat === '' ||
-      this.email === '' ||
-      this.nomCognom === '' ||
-      this.telefon === '' ||
-      this.dni === undefined ||
-      this.codiFederat === undefined ||
-      this.email === undefined ||
-      this.nomCognom === undefined ||
-      this.telefon === undefined ||
-      this.dni.length !== 8 ||
+      this.user.dni === '' ||
+      this.user.codiFederat === '' ||
+      this.user.email === '' ||
+      this.user.nomCognom === '' ||
+      this.user.telefon === '' ||
+      this.user.dni === undefined ||
+      this.user.codiFederat === undefined ||
+      this.user.email === undefined ||
+      this.user.nomCognom === undefined ||
+      this.user.telefon === undefined ||
+      this.user.dni.length !== 8 ||
       this.selectedOptions.length === 0
     );
   }
