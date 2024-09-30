@@ -29,37 +29,13 @@ export class InscriptionComponent {
   email!: string;
 
   findLetter() {
-    let myarray: string[] = [
-      'T',
-      ' R',
-      ' W',
-      'A',
-      'G',
-      'M',
-      'Y',
-      'F',
-      'P',
-      'D',
-      'X',
-      'B',
-      'N',
-      'J',
-      'Z',
-      'S',
-      'Q',
-      'V',
-      'H',
-      'L',
-      'C',
-      'K',
-      'E',
-    ];
+    let letters: string = 'TRWAGMYFPDXBNJZSQVHLCKE';
     let mynum = parseInt(this.dni);
     mynum = (mynum % 23) - 1;
-    // let myp = document.getElementById('myp');
-    if (this.dni.length === 8) {
-      this.letter = myarray[mynum];
+    if (this.dni !== undefined && this.dni.length === 8) {
+      return letters.charAt(mynum);
     }
+    return '';
   }
 
   isSelected(optionName: string): boolean {

@@ -45,6 +45,7 @@ describe('Dades identificatives ', () => {
     fixture = TestBed.createComponent(InscriptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.nativeElement as HTMLElement;
   });
 
   it('should create the app', () => {
